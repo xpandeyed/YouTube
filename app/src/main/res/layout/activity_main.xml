@@ -5,21 +5,29 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/abl_main"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_main"
+            app:title="YouTube"
+            app:menu="@menu/main"
+            android:theme="@style/ToolbarTheme"
+            app:logo="@drawable/youtube"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/rv_videos"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/abl_main"
         tools:listitem="@layout/video_item"
         tools:itemCount="1"
-        android:layout_height="wrap_content"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_videos"
-        android:id="@+id/rv_shorts"
-        android:orientation="horizontal"
-        tools:listitem="@layout/shorts_item"
-        tools:itemCount="3"
+
         android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

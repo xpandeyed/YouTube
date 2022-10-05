@@ -1,6 +1,7 @@
 package com.example.youtube;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,12 @@ public class ShortsRvAdapter extends  RecyclerView.Adapter<ShortsRvAdapter.ViewH
         VideoView videoView = holder.videoView;
         videoView.setVideoURI(Uri.parse("android.resource://com.example.youtube/"+R.raw.shorts));
         videoView.start();
+        videoView.setOnCompletionListener ( new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                videoView.start();
+            }
+        });
     }
 
     @Override
