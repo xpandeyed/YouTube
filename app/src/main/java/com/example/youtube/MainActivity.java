@@ -25,5 +25,12 @@ public class MainActivity extends AppCompatActivity {
         VideoRvAdapter adapter = new VideoRvAdapter();
         rvVideos.setAdapter(adapter);
 
+        LinearLayoutManager linearLayoutManagerForShorts = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        RecyclerView rvShorts = findViewById(R.id.rv_shorts);
+        rvShorts.setLayoutManager(linearLayoutManagerForShorts);
+        rvShorts.setItemAnimator(new DefaultItemAnimator());
+        ShortsRvAdapter adapterForShorts = new ShortsRvAdapter();
+        rvShorts.setAdapter(adapterForShorts);
+
     }
 }
